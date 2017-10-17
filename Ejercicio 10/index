@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html ng-app="universidadApp"> <!-- Para que el html se controle por angularJS se pone el np-app-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title> Base de datos </title>
+		<!-- Incluir estilos LINK -->
+		
+		<!-- Inclusion de bootstrap-->
+		<link rel="stylesheet" href="css/animate.css">
+		
+		<!-- Inclusion de animated -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
+		<!-- Incluir librería -->
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		<style>
+			.avatar{
+				width: 75px;
+				height: 75px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="container" ng-controller="listadoCtrl">
+			<h1>Filtros</h1>
+			<h4>Para el ng-repeat</h4>
+			<hr>
+			<div clas="row">
+				Búsqueda:
+				<br>
+				<input type="text" ng-model="busqueda.nombre" class="form-control" placeholder="Ingrese lo que desea buscar">
+				<br>
+				Sexo:
+				<br>
+				<select ng-model="busqueda.sexo" class="form-control">
+					<option value="">Cualquiera</option>
+					<option value="mujer">Mujeres</option>
+					<option value="hombre">Hombres</option>
+				</select>
+				<br>
+			</div>
+			<table class="table table-striped">
+				<tr>
+					<th>Avatar</th>
+					<th>Nombre</th>
+					<th>Sexo</th>
+					<th>Celular</th>
+				</tr>
+
+				<tr ng-repeat="persona in personas | filter:busqueda">
+					<td> <img ng-src="img/{{ persona.avatar }}"" class="avatar img-circle"></td>
+					<td>{{ persona.nombre }}</td>
+					<td>{{ persona.sexo }}</td>
+					<td>{{ persona.celular }}</td>
+				</tr>
+			</table>
+
+			
+		</div> <!-- Fin de listadoCtrl -->
+
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html ng-app="universidadApp"> <!-- Para que el html se controle por angularJS se pone el np-app-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title> ng-options </title>
+		<!-- Incluir estilos LINK -->
+		
+		<!-- Inclusion de bootstrap-->
+		<link rel="stylesheet" href="css/animate.css">
+		
+		<!-- Inclusion de animated -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
+		<!-- Incluir librería -->
+		<script src="js/lib/angular.min.js"></script>
+
+		<script src="js/app.js"></script>		
+	</head>
+	<body>
+		<div class="container" ng-controller="listadoCtrl">
+			
+			<h1>ng-options</h1>
+			<h4>Repeticiones para elementos</h4>
+			<hr>
+			Selección del pais:{{ paisSeleccionado }}
+			<select ng-model="paisSeleccionado" class="form-control">
+				<option value="">Seleccione</option>
+				<option ng-repeat="pais in paises" value="{{ pais.id }}"> {{ pais.nombre }} </option>
+
+			</select>
+			<br>
+			Selección del pais: <!-- Con ng-options te ahorras una entry en las options porque recorres la lista desde la cabecera -->
+			<select ng-model="paisSeleccionado" class="form-control" ng-options="pais.id as pais.nombre for pais in paises">
+				<option value="">Seleccione</option>
+			</select>
+
+		</div> <!-- Fin de listadoCtrl -->
+
+	</body>
+</html>

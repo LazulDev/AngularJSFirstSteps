@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html ng-app="universidadApp"> <!-- Para que el html se controle por angularJS se pone el np-app-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title> NG-REPEAT - ng-repeat </title>
+		<!-- Incluir estilos LINK -->
+		
+		<!-- Inclusion de bootstrap-->
+		<link rel="stylesheet" href="css/animate.css">
+		
+		<!-- Inclusion de animated -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		
+		<!-- Incluir librería -->
+		<script src="js/lib/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		
+	</head>
+	<body>
+		<div class="container" ng-controller="listadoCtrl">
+			<h1>ng-repeat</h1>
+			<h4>Manejando repeticiones</h4>
+			<hr>
+			<!--  
+			Listado ineficiente:
+			<ul>
+				<li>Fernando</li>
+				<li>Melisa</li>
+				<li>Juan Carlos</li>
+
+			</ul>
+			-->
+			Listado eficiente: 
+			<ul>
+				<li ng-repeat="elemento in listado">
+					{{ elemento }} <!-- elemento es como la i de un bucle, te inventas como se llama y despues lo usas con el fin que quieras -->
+				</li>
+
+			</ul>
+			<table class="table table-striped">
+				<tr>
+					<th>Nombre</th>
+					<th>Edad</th>
+					<th>Clase</th>
+				</tr>
+				<tr ng-repeat="profesor in listadoProfesores.profesores">
+					<th>{{ profesor.nombre}}</th>
+					<th>{{ profesor.edad }}</th>
+					<th>{{ profesor.clase }}</th>
+				</tr>
+
+			</table>
+
+			<ul>
+				<li ng-repeat="numero in [1,2,3,4,5,6,7,8,9,10]">
+					2 x {{ numero }} = {{ 2*numero }}
+				</li>
+
+			</ul>
+
+			{{ listadoProfesores | json }}
+		</div> <!-- Fin de listadoCtrl -->
+
+	</body>
+</html>

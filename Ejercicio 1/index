@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html ng-app> <!-- Para que el html se controle por angularJS se pone el np-app-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<!-- Incluir estilos LINK -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- Incluir librería -->
+		<script src="js/lib/angular.min.js"></script>
+		
+		</head>
+	<body>
+		<div class="container">
+			
+			<h1>{{ "Hola mundo" }}</h1>
+		</div>
+
+	</body>
+</html>
