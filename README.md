@@ -1,0 +1,2 @@
+# AngularJSFirstSteps
+Some exercises @ AngularJS
